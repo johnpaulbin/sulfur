@@ -55,6 +55,7 @@ var sulfur = {
   },
   "encodeQuotes" : function (s) {
     //Thanks to ic3b3rg on Stack Overflow for this RegEx: https://stackoverflow.com/a/54027889/10124491
+    // """ seems to work. I'm baffled why. I need to learn RegEx
     return s.replace(/"(.+?)"/g, (s, t) => encodeURIComponent(t));
   },
   "replaceVars" : function (s) {
