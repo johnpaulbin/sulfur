@@ -9,6 +9,7 @@ var sulfur = {
     sulfur.vars = {}; //Functions are also supposed to put outputs in vars, eg. Prompts the user for name, and the answer goes in sulfur.sfrvars.answer. You can use the vars module for more features.
     //Loop through lines
     for (sulfur.lineNumber = 1; sulfur.lineNumber < sulfur.code.length; sulfur.lineNumber++) {
+      sulfur.vars.thisLine = sulfur.lineNumber;
       var line = sulfur.code[sulfur.lineNumber];
       //Add to LineData log
       sulfur.lineData[sulfur.lineNumber] = [];
@@ -78,5 +79,27 @@ var sulfur = {
     for (var moduleNumber = 0; moduleNumber < sulfur.metadata.requires.length; moduleNumber++) {
       sulfur.loadModule(sulfur.metadata.requires[moduleNumber]);
     }
+  },
+  "logic" : {
+    "condition" : function (conditionStr) {
+      if (conditionStr === "true" || conditionStr === "false") {
+        //If true or false
+        return JSON.parse(conditionStr);
+      } else if (conditionStr.split("=").length === 2) {
+        //If equal comparison
+        var values = conditionStr.split("=");
+        return values[0] === values[1];
+      } else if (conditionStr === "undefined") {
+        //If var does not exist (undefined)
+        return false;
+      } else {
+        // Nothing = false, anything = true
+        return conditionStr != "";
+      }
+    }
+  },
+  "num" : function (int) {
+    if (isNaN(int)) return false;
+    return Number(int);
   }
 }
