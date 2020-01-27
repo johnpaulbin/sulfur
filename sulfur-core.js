@@ -68,7 +68,7 @@ var sulfur = {
   "commands" : {
   },
   "loadModule" : function (moduleName) {
-    import("https://archiebaer.github.io/sulfur-modules/modules/" + moduleName + ".mjs").then(module => {
+    import("https://github.com/johnpaulbin/sulfur-modules/tree/master/modules" + moduleName + ".mjs").then(module => {
       sulfur.commands[moduleName] = module.default;
     });
   },
