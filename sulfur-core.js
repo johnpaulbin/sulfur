@@ -68,7 +68,7 @@ var sulfur = {
   "commands" : {
   },
   "loadModule" : function (moduleName) {
-    import("https://rawcdn.githack.com/johnpaulbin/sulfur-modules/f19a79fb8f13fa9f6fc7503dfa58db12810687f7/modules/" + moduleName + ".mjs").then(module => {
+    import("https://rawcdn.githack.com/johnpaulbin/sulfur-modules/f19a79fb8f13fa9f6fc7503dfa58db12810687f7/modules" + moduleName + ".mjs").then(module => {
       sulfur.commands[moduleName] = module.default;
     });
   },
