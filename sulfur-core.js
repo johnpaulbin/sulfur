@@ -47,7 +47,7 @@ var sulfur = {
           sulfur.lineLog("Command does not exist, ending script");
           return false;
         }
-        commandNode(params);
+        commandNode.[params];
       }
     }
     //End Successfully
